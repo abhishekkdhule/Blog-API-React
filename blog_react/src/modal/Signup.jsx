@@ -9,9 +9,8 @@ function Signup() {
     console.log(username,email,password,confPassword)
     return (
         <div className="container">
-        <div className="row mt-4">
-            <div className="col-md-4 mx-auto">
-                <div className="border rounded m-1 p-3 shadow">
+        <div className="row mt-1">
+                <div className=" rounded m-1 p-1 ">
                 <h3 className="text-center">Sign up</h3>
                 <label for="username" className="form-label m-0 mt-2">Username</label>
                 <input type="text" id="username" className="form-control" onChange={(e)=>setUsername(e.target.value)}  name="name" value={username}/>
@@ -27,14 +26,10 @@ function Signup() {
 
                 <button className="btn btn-primary w-100 mt-3">Sign up</button>
                 
-                <hr/>
-                <div className="d-flex justify-content-evenly">
-                    <i className="fab fa-google icon"></i> <i class="fab fa-facebook icon"></i>
-                </div>
                 </div>
             </div>
         </div>
-    </div>
+    
     )
 }
 

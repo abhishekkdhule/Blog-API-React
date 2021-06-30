@@ -151,9 +151,3 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
-cloudinary.config( 
-  cloud_name = "djzhnqsaw", 
-  api_key = "245585122371938", 
-  api_secret = "nsqPuF7R0zzUswCL1cu9nJe-nMY",
-  secure = True
-)

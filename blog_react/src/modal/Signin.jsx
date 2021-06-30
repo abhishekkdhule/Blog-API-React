@@ -47,9 +47,9 @@ function Signin() {
     return (<>
         
         <div className="container">
-        <div className="row mt-4">
+        <div className="row mt-1 mb-4">
             
-                <div className="rounded  shadow">
+                <div className="rounded">
                     {
                         errors && <div class="alert alert-danger p-2 mt-2 text-center" role="alert">
                         {errors}
@@ -57,17 +57,13 @@ function Signin() {
                     }
                     <h3 className="text-center">Sign in</h3>
                     
-                    <label for="username" className="form-label m-0 mt-2">username</label>
+                    <label for="username" className="form-label m-0 mt-2">Username</label>
                     <input type="text" id="username" className="form-control" value={username} onChange={(e)=>setusername(e.target.value)} name="username"/>
 
                     <label for="password" className="form-label m-0 mt-2">Password</label>
                     <input type="password" id="password" className="form-control" value={password} onChange={(e)=>setPassword(e.target.value)} name="password"/>
 
                     <button className="btn btn-primary w-100 mt-3" onClick={Login}>Sign in</button>
-                    <hr/>
-                    <div className="d-flex justify-content-evenly">
-                        <i className="fab fa-google icon"></i> <i className="fab fa-facebook icon"></i>
-                    </div>
                 </div>
             </div>
         </div>

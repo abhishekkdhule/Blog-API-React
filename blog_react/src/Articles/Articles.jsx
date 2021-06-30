@@ -1,6 +1,8 @@
 import {React,useEffect,useState} from 'react'
 import axios from 'axios'
 import  Cookies  from  'js-cookie';
+import Article from './Article';
+
 
 const custAxios=axios.create({
     baseURL:"http://localhost:8000/",
@@ -12,9 +14,10 @@ const custAxios=axios.create({
 
 
 function Articles() {
-    const [articles,setArticles]=useState(['a','v'])
+    const [articles,setArticles]=useState([])
 
     useEffect(()=>{
+        console.log('inuser effect')
         custAxios.get('articles/')
         .then(response =>{
             console.log(response)
@@ -27,12 +30,13 @@ function Articles() {
 
     return (
         <div>
-        <h2>this is article component</h2>
+            <div className="container">
             {
                 articles.map((article)=>{
-                    return <div>{article.title}</div>
+                    return <Article key={article.id} user={article.user} title={article.title} text={article.text} time={article.time}/>
                 })
             }
+            </div>
         </div>
     )
 }
