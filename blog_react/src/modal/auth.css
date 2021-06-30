@@ -1,0 +1,13 @@
+.icon {
+  font-size: 33px;
+  transition-duration: 0.3s;
+}
+.icon:hover {
+  cursor: pointer;
+}
+.icon:nth-child(1) {
+  color: rgb(204, 48, 0);
+}
+.icon:nth-child(2) {
+  color: rgb(25, 0, 255);
+}
