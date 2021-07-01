@@ -7,8 +7,8 @@ function Article(props) {
     const userObj=props.user
     return (
        
-            <div className="row mt-4">
-                <div className="col-md-8 mx-auto border shadow ">
+            <div className="row mt-4 ">
+                <div className="col-md-8 mx-auto border shadow bg-white">
                     <div className="d-flex pt-2 justify-content-between">
                     <div className="d-flex">
 

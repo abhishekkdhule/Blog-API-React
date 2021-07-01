@@ -4,7 +4,10 @@ import Signin from './Signin';
 import Signup from './Signup';
 
 function CustomModal(props) {
-  
+    let modalClass="modal-dialog"
+    if(props.type==="AA"){
+        modalClass="modal-dialog modal-lg"
+    }
 
   return (
       <>
@@ -15,7 +18,8 @@ function CustomModal(props) {
 
 
             <div className="modal fade" id={props.type} tabindex="-1" aria-labelledby={props.type} aria-hidden="true">
-            <div className="modal-dialog">
+            
+            <div className={modalClass}>
                 <div className="modal-content">
                 <div className="modal-header">
                     {/* <h5 className="modal-title text-center" id="{props.type}Label">{props.heading}</h5> */}
