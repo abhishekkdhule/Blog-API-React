@@ -1,0 +1,7 @@
+.navtext{
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+.navtext:hover{
+    background-color: rgb(210, 210, 244);
+}

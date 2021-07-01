@@ -24,6 +24,7 @@ function Articles() {
             setArticles(response.data.data)
             if(response.data.user){
             sessionCont.setLog(true)
+            sessionCont.setU(response.data.user)
             }
         })
         .catch(error=>{

@@ -34,15 +34,7 @@ function Signin() {
     }
 
 
-    // useEffect(()=>{
-    //     axios.post('http://127.0.0.1:8000/auth/login/',{"username":username,"password":password})   
-    //     .then(response=>{
-    //         console.log(response)
-    //     })
-    //     .catch(error=>{
-    //         console.log(error)
-    //     })
-    // })
+
 
     console.log(username,password)
     return (<>

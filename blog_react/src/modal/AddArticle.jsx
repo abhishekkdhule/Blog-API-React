@@ -10,7 +10,6 @@ const custAxios=axios.create({
         'X-CSRFToken':Cookies.get('csrftoken'),
     },
     withCredentials:true,
-    credentials:true
 })
 
 function AddArticle() {
@@ -28,11 +27,14 @@ function AddArticle() {
     return (
         <>
         <h5 className="text-center mb-3">What's in your mind??</h5>
-        <label for="title">Title</label>
-        <input className="form-control mb-2" type="text" name="title" value={title} placeholder="Today's weather!!!!" onChange={(e)=>setTitle(e.target.value)}/>
-        <label for="blogContent">Blog Content</label>
+        <label for="title mb-1">Title</label>
+        <input className="form-control mb-3" type="text" name="title" value={title} placeholder="Today's weather!!!!" onChange={(e)=>setTitle(e.target.value)}/>
+        <label for="blogContent mb-1">Blog Content</label>
         <ReactQuill theme="snow" value={value} onChange={setValue}/>
+        <div className="text-end">
+
         <button className="btn btn-primary mt-2 " onClick={()=>SaveBlog()}>Publish</button>
+        </div>
         </>
     );
     

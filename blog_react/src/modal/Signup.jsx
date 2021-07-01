@@ -1,10 +1,31 @@
 import React, { useState } from 'react'
 import './auth.css'
+import axios from 'axios'
+import  Cookies  from  'js-cookie';
+
+const custAxios=axios.create({
+    baseURL:"http://localhost:8000/",
+    headers:{
+        'X-CSRFToken':Cookies.get('csrftoken'),
+    },
+    withCredentials:true,
+})
+
 function Signup() {
     const [username,setUsername]=useState('');
     const [email,setEmail]=useState('');
     const [password,setPassword]=useState('');
     const [confPassword,setConfPassword]=useState('');
+
+    const SignupCall=()=>{
+        custAxios.post('signup/',{"username":username,"email":email,"password":password,"conf_password":confPassword})
+        .then((response)=>{
+            console.log("signedup",response)
+        })
+        .catch(error=>{
+            console.log(error)
+        })
+    }
 
     console.log(username,email,password,confPassword)
     return (
@@ -24,7 +45,7 @@ function Signup() {
                 <label htmlFor="confirmpassword" className="form-label m-0 mt-2">Confirm Password</label>
                 <input type="password" id="confirmpassword" className="form-control" onChange={(e)=>setConfPassword(e.target.value)} name="confirmpassword" value={confPassword}/>
 
-                <button className="btn btn-primary w-100 mt-3">Sign up</button>
+                <button className="btn btn-primary w-100 mt-3" onClick={()=>SignupCall()}>Sign up</button>
                 
                 </div>
             </div>

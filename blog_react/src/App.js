@@ -8,9 +8,10 @@ export const sessionContext=React.createContext()
 
 function App() {
   const [isLoggedIn,setisLoggedIn]=useState(false)
+  const [user,setUser]=useState(null)
   return (
     <>
-    <sessionContext.Provider value={{isLog:isLoggedIn,setLog:setisLoggedIn}}>
+    <sessionContext.Provider value={{isLog:isLoggedIn,user:user,setU:setUser,setLog:setisLoggedIn}}>
     <Nav/>
     <Articles/>
     </sessionContext.Provider>

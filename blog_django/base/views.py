@@ -5,7 +5,7 @@ from rest_framework import authentication, permissions
 from django.contrib.auth.models import User
 from rest_framework.generics import GenericAPIView
 from . models import Article
-from . serializers import ArticleSerializer,LoginSerializer,ArticlePublishSerializer
+from . serializers import ArticleSerializer,LoginSerializer,ArticlePublishSerializer,RegistrationSerializer
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth import authenticate,login,logout
@@ -14,10 +14,8 @@ from rest_framework.authentication import SessionAuthentication, BasicAuthentica
 
 class Login(GenericAPIView):
     def post(self,request):
-        print(request.data)
         user=authenticate(username=request.data['username'],password=request.data['password'])
         login(request,user)
-        print(user)
         return Response({"login status":"success"},status=status.HTTP_200_OK)
 
 class Logout(GenericAPIView):
@@ -25,17 +23,24 @@ class Logout(GenericAPIView):
         logout(request)
         return Response({"auth":"logged out"},status=status.HTTP_200_OK)
 
-class LogoutView(GenericAPIView):
+
+class SignUp(GenericAPIView):
     def post(self,request):
-        logout(request)
-        return Response({"status":"logged out"},status=status.HTTP_200_OK)
+        serializer=RegistrationSerializer(data=request.data)
+        print(request.data)
+        if(serializer.is_valid()):
+            user=User.objects.create_user(username=request.data['username'],email=request.data['email'],password=request.data['password'])
+            user.save()
+            return Response(serializer.data,status=status.HTTP_200_OK)
+        print(serializer.errors)
+        return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+
 
 class AllArticles(GenericAPIView):
     # authentication_classes = [SessionAuthentication, BasicAuthentication]
     # permission_classes=[IsAuthenticated]
     
     def get(self,request):   
-        print(request.user)
         articleObjs=Article.objects.all().order_by('-time')
         serializer=ArticleSerializer(articleObjs,many=True)
         return Response({"data":serializer.data,"user":request.user.username},status=status.HTTP_200_OK)

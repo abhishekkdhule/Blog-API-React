@@ -10,11 +10,11 @@ function Article(props) {
     return (
        
             <div className="row mt-4 ">
-                <div className="col-md-8 mx-auto border shadow bg-white rounded">
+                <div className="col-md-8 mx-auto border shadow-sm bg-white rounded">
                     <div className="d-flex pt-2 justify-content-between">
                     <div className="d-flex mt-1">
 
-                    <Avatar style={{ width: '3rem', height: '3rem' }}  />
+                    <Avatar style={{ width: '3rem', height: '3rem' }}  hairStyle="thick" />
         
                     <h6 className="mt-3 ms-2 mb-0">{userObj.username}</h6>
                     </div>
@@ -25,8 +25,8 @@ function Article(props) {
    
                     </div>
                     <hr/>
-                    <h3 className="text-center mb-4">{props.title}</h3>
-                    <div className="p-3" dangerouslySetInnerHTML={{__html:updatedText}}></div>
+                    <h2 className="mx-auto mb-2  text-center">{props.title}</h2>
+                    <div className="p-3" style={{textAlign:'justify'}} dangerouslySetInnerHTML={{__html:updatedText}}></div>
                 </div>
             </div>
         
