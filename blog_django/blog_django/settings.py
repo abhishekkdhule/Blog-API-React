@@ -53,11 +53,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOW_ALL_ORIGINS=True
+# CORS_ALLOW_ALL_ORIGINS=True
 CORS_ALLOW_CREDENTIALS = True   
 LOGIN_REDIRECT_URL='/'
 
-# CORS_ALLOWED_ORIGINS=['http://localhost:3000','http://localhost:8000','http://127.0.0.1:8000']
+CORS_ALLOWED_ORIGINS=['http://localhost:3000','http://localhost:8000','http://127.0.0.1:8000','https://drf-react-blog.herokuapp.com','https://drf-blog.netlify.app']
 # CORS_ALLOW_ALL_ORIGINS=True
 # CORS_ORIGIN_ALLOW_ALL = False
 # CORS_ORIGIN_WHITELIST = (
