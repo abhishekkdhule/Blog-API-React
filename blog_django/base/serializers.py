@@ -13,6 +13,12 @@ class ArticleSerializer(serializers.ModelSerializer):
         model=Article
         fields=['user','title','text','time','image']
 
+class ArticlePublishSerializer(serializers.ModelSerializer):
+    user=serializers.HiddenField(default=serializers.CurrentUserDefault())
+    class Meta:
+        model=Article
+        fields=['user','title','text','time']
+
 
 class LoginSerializer(serializers.ModelSerializer):
     class Meta:

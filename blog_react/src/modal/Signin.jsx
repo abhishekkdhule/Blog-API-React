@@ -1,8 +1,8 @@
 import axios from 'axios'
 import React,{useEffect, useState,useContext} from 'react'
-// import {Redirect,useHistory} from "react-router-dom"
 import  Cookies  from  'js-cookie';
 import './auth.css'
+
 
 const custAxios=axios.create({
     baseURL:"http://localhost:8000/",
@@ -14,6 +14,7 @@ const custAxios=axios.create({
 })
 
 function Signin() {
+    // const isLoggedIn=useContext(logInContext)
     const [username, setusername] = useState('')
     const [password, setPassword] = useState('')
     // const history=useHistory()
@@ -23,7 +24,7 @@ function Signin() {
         custAxios.post('login/',{"username":username,"password":password})   
         .then(response=>{
             console.log(response.data)
-            // history.push("/")
+            window.location.reload()
             
         })
         .catch(error=>{
@@ -57,10 +58,10 @@ function Signin() {
                     }
                     <h3 className="text-center">Sign in</h3>
                     
-                    <label for="username" className="form-label m-0 mt-2">Username</label>
+                    <label htmlFor="username" className="form-label m-0 mt-2">Username</label>
                     <input type="text" id="username" className="form-control" value={username} onChange={(e)=>setusername(e.target.value)} name="username"/>
 
-                    <label for="password" className="form-label m-0 mt-2">Password</label>
+                    <label htmlFor="password" className="form-label m-0 mt-2">Password</label>
                     <input type="password" id="password" className="form-control" value={password} onChange={(e)=>setPassword(e.target.value)} name="password"/>
 
                     <button className="btn btn-primary w-100 mt-3" onClick={Login}>Sign in</button>

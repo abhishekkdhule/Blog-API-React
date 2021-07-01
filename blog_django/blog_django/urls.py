@@ -16,12 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from django.contrib.auth import views as auth_views
-from base.views import AllArticles,Login
+from base.views import AllArticles,Login,PublishArticle,Logout
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('login/',Login.as_view(),name="login"),
-    path('logout/',auth_views.LogoutView,name="logout"),
-    path('articles/',AllArticles.as_view(),name="articles")
+    path('logout/',Logout.as_view(),name="logout"),
+    path('articles/',AllArticles.as_view(),name="articles"),
+    path('addarticle/',PublishArticle.as_view(),name="articles")
     
 ]
