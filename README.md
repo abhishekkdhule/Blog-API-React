@@ -5,3 +5,6 @@
 Sample credentials:
 * username: testuser
 * password: test123
+
+### Screenshot
+![homepage](https://github.com/abhishekkdhule/Blog-API-React/blob/master/bloghome.png)
